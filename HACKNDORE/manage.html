@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indore Water Management Dashboard</title>
+    <link rel="stylesheet" href="manage.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Indore Water Management Dashboard</h1>
+        
+        <div class="metrics">
+            <div class="metric-card">
+                <h2>Total Water Usage</h2>
+                <p id="totalUsage">Loading...</p>
+            </div>
+            <div class="metric-card">
+                <h2>Leakage Detected</h2>
+                <p id="totalLeakage">Loading...</p>
+            </div>
+            <div class="metric-card">
+                <h2>Efficiency</h2>
+                <p id="efficiency">Loading...</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <select id="wardSelect">
+                <option value="">Select Ward</option>
+                <option value="ward1">Ward 1</option>
+                <option value="ward2">Ward 2</option>
+                <option value="ward3">Ward 3</option>
+            </select>
+            <select id="metricSelect">
+                <option value="usage">Usage</option>
+                <option value="leakage">Leakage</option>
+            </select>
+            <button id="generateReport">Generate Report</button>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="waterChart"></canvas>
+        </div>
+
+        <div class="form-container">
+            <h2>Report Water Usage</h2>
+            <form id="usageForm">
+                <label for="usageWard">Ward:</label>
+                <select id="usageWard" required>
+                    <option value="ward1">Ward 1</option>
+                    <option value="ward2">Ward 2</option>
+                    <option value="ward3">Ward 3</option>
+                </select>
+                <label for="usageAmount">Usage Amount (KL):</label>
+                <input type="number" id="usageAmount" required>
+                <label for="usageDate">Date:</label>
+                <input type="date" id="usageDate" required>
+                <button type="submit">Submit Usage</button>
+            </form>
+        </div>
+
+        <div class="form-container">
+            <h2>Report Leakage</h2>
+            <form id="leakageForm">
+                <label for="leakageWard">Ward:</label>
+                <select id="leakageWard" required>
+                    <option value="ward1">Ward 1</option>
+                    <option value="ward2">Ward 2</option>
+                    <option value="ward3">Ward 3</option>
+                </select>
+                <label for="leakageAmount">Leakage Amount (KL):</label>
+                <input type="number" id="leakageAmount" required>
+                <label for="leakageLocation">Location:</label>
+                <input type="text" id="leakageLocation" required>
+                <label for="leakageDate">Date:</label>
+                <input type="date" id="leakageDate" required>
+                <button type="submit">Report Leakage</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
